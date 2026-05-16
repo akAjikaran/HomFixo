@@ -1,10 +1,7 @@
 import {
   AirVent,
   Bolt,
-  CalendarCheck,
-  CheckCircle2,
   Droplets,
-  Home,
   Laptop,
   Refrigerator,
   Tv,
@@ -16,11 +13,24 @@ export const contact = {
   location: "Jaffna",
 };
 
+export function createWhatsAppLink(message: string) {
+  return `${contact.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
+export function serviceWhatsAppMessage(service: string) {
+  return `Hi Homfixo, I need help with ${service} in Jaffna.`;
+}
+
+export const generalWhatsAppMessage =
+  "Hi Homfixo, I need help with a repair service in Jaffna.";
+
+export const appointmentWhatsAppMessage =
+  "Hi Homfixo, I want to book an appointment for a repair service in Jaffna.";
+
 export const navItems = [
   { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how" },
-  { label: "Book", href: "#booking" },
-  { label: "Contact", href: "#contact" },
+  { label: "Book an appointment", href: "#booking" },
+  { label: "Contact us", href: "#contact" },
 ];
 
 export const heroServices = [
@@ -35,18 +45,18 @@ export const heroServices = [
 export const workSteps = [
   {
     title: "Message us on WhatsApp",
-    body: "Tell us the device, appliance, or home repair issue and your Jaffna location.",
-    icon: CheckCircle2,
+    body: "Start a chat instantly",
+    image: "/images/how-it-works-1.png",
   },
   {
-    title: "Share details or photos",
-    body: "Send photos, model details, or fault symptoms so we can prepare the right technician.",
-    icon: Home,
+    title: "Share details / photo",
+    body: "(Optional) Send photos of the issue",
+    image: "/images/how-it-works-2.png",
   },
   {
-    title: "We schedule and arrive",
-    body: "A suitable local technician visits your home, office, or shop at the confirmed time.",
-    icon: CalendarCheck,
+    title: "We schedule & assign",
+    body: "Technician arrives on time",
+    image: "/images/how-it-works-3.png",
   },
 ];
 

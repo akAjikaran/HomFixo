@@ -1,9 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CalendarDays, Clock, MapPin, MessageCircle, Wrench } from "lucide-react";
-import { contact, services } from "@/data/home";
+import { CalendarDays, Clock, MapPin, Wrench } from "lucide-react";
+import { createWhatsAppLink, services } from "@/data/home";
 import { SectionHeading } from "./section-heading";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 const timeSlots = ["Morning", "Afternoon", "Evening", "Urgent / ASAP"];
 const jaffnaAreas = [
@@ -37,7 +38,7 @@ export function BookingSection() {
       `Issue: ${details.trim() || "-"}`,
     ].join("\n");
 
-    return `${contact.whatsapp}?text=${encodeURIComponent(message)}`;
+    return createWhatsAppLink(message);
   }, [area, date, details, service, time]);
 
   return (
@@ -175,7 +176,7 @@ export function BookingSection() {
                     : "pointer-events-none bg-slate-300",
                 ].join(" ")}
               >
-                <MessageCircle size={17} />
+                <WhatsAppIcon />
                 Book via WhatsApp
               </a>
               <p className="mt-3 text-center text-xs leading-5 text-slate-500">

@@ -1,6 +1,7 @@
-import { Menu, MessageCircle } from "lucide-react";
-import { contact, navItems } from "@/data/home";
+import { Menu } from "lucide-react";
+import { createWhatsAppLink, generalWhatsAppMessage, navItems } from "@/data/home";
 import { Logo } from "./logo";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 export function Header() {
   return (
@@ -16,10 +17,10 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href={contact.whatsapp}
-            className="hidden min-w-40 items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-6 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-whatsapp-600 sm:inline-flex"
+            href={createWhatsAppLink(generalWhatsAppMessage)}
+            className="hidden min-w-40 items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-whatsapp-600 sm:inline-flex"
           >
-            <MessageCircle size={16} />
+            <WhatsAppIcon />
             WhatsApp Now
           </a>
           <details className="group relative md:hidden">
@@ -41,9 +42,9 @@ export function Header() {
               ))}
               <a
                 className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-5 py-2.5 text-sm font-bold text-white hover:bg-whatsapp-600"
-                href={contact.whatsapp}
+                href={createWhatsAppLink(generalWhatsAppMessage)}
               >
-                <MessageCircle size={15} />
+                <WhatsAppIcon />
                 WhatsApp Now
               </a>
             </div>

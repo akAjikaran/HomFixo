@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle, X } from "lucide-react";
-import { contact, heroServices } from "@/data/home";
+import { X } from "lucide-react";
+import {
+  appointmentWhatsAppMessage,
+  createWhatsAppLink,
+  heroServices,
+  serviceWhatsAppMessage,
+} from "@/data/home";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 const heroImages = [
   "/images/hero-technician-1.png",
@@ -17,10 +23,8 @@ export function Hero() {
   const [activeImage, setActiveImage] = useState(0);
 
   const whatsappHref = selectedService
-    ? `${contact.whatsapp}?text=${encodeURIComponent(
-        `Hi Homfixo, I need help with ${selectedService} in Jaffna.`
-      )}`
-    : contact.whatsapp;
+    ? createWhatsAppLink(serviceWhatsAppMessage(selectedService))
+    : createWhatsAppLink(appointmentWhatsAppMessage);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -35,12 +39,11 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:items-center md:py-16 lg:px-8">
         <div>
           <h1 className="max-w-xl text-3xl font-extrabold leading-tight tracking-normal text-ink sm:text-4xl lg:text-5xl">
-            Repair Services in Jaffna, One WhatsApp Away
+            Home Repairs & Maintenance Services
           </h1>
           <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
-            Book local technicians for laptop and computer repair, AC cleaning,
-            refrigerator repair, TV repair, plumbing, and electrical work around Jaffna,
-            Nallur, Chunnakam, Kopay, and nearby areas.
+            Book trusted technicians for appliance repairs, plumbing, electrical work,
+            AC servicing, and general home maintenance with quick WhatsApp support.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:max-w-lg sm:grid-cols-3">
             {heroServices.map((service) => {
@@ -52,7 +55,7 @@ export function Hero() {
                   onClick={() => setSelectedService(service.label)}
                   className="flex min-h-16 items-center gap-3 rounded border border-slate-200 bg-white px-3 py-3 text-left shadow-sm transition hover:border-brand-500 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-brand-50 text-brand-600">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-gray-100 text-brand-600">
                     <Icon size={17} />
                   </span>
                   <span className="text-sm font-bold text-slate-800">{service.label}</span>
@@ -62,10 +65,10 @@ export function Hero() {
           </div>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={contact.whatsapp}
-              className="inline-flex min-w-56 items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-8 py-3 text-sm font-bold text-white transition hover:bg-whatsapp-600"
+              href={createWhatsAppLink(appointmentWhatsAppMessage)}
+              className="inline-flex min-w-56 items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-8 py-4 text-sm font-bold text-white transition hover:bg-whatsapp-600"
             >
-              <MessageCircle size={17} />
+              <WhatsAppIcon />
               Chat on WhatsApp
             </a>
             <a
@@ -146,7 +149,7 @@ export function Hero() {
               href={whatsappHref}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-whatsapp-600"
             >
-              <MessageCircle size={17} />
+              <WhatsAppIcon />
               Chat on WhatsApp
             </a>
           </div>

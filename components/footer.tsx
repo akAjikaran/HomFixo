@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { contact, services } from "@/data/home";
 import { Logo } from "./logo";
 
@@ -14,13 +14,6 @@ export function Footer() {
             Homfixo connects Jaffna households and small businesses with reliable local
             technicians for appliance, computer, plumbing, and electrical repairs.
           </p>
-          <a
-            href={contact.whatsapp}
-            className="mt-5 inline-flex min-w-36 items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-whatsapp-600"
-          >
-            <MessageCircle size={15} />
-            WhatsApp
-          </a>
         </div>
         <div>
           <h3 className="text-sm font-extrabold uppercase tracking-[0.18em] text-white">Our Services</h3>

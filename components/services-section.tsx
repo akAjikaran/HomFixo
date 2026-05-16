@@ -1,6 +1,7 @@
-import { CheckCircle2, MessageCircle } from "lucide-react";
-import { contact, services } from "@/data/home";
+import { CheckCircle2 } from "lucide-react";
+import { createWhatsAppLink, services, serviceWhatsAppMessage } from "@/data/home";
 import { SectionHeading } from "./section-heading";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 export function ServicesSection() {
   return (
@@ -19,7 +20,7 @@ export function ServicesSection() {
                 key={service.title}
                 className="rounded-lg border border-slate-200 bg-white p-6 shadow-card ring-1 ring-transparent transition hover:border-brand-500 hover:ring-brand-100"
               >
-                <div className="grid h-14 w-14 place-items-center rounded-full bg-brand-50 text-brand-600">
+                <div className="grid h-14 w-14 place-items-center rounded-full bg-navy text-white">
                   <Icon size={23} />
                 </div>
                 <h3 className="mt-6 text-lg font-extrabold text-ink">{service.title}</h3>
@@ -33,10 +34,10 @@ export function ServicesSection() {
                   ))}
                 </ul>
                 <a
-                  href={contact.whatsapp}
+                  href={createWhatsAppLink(serviceWhatsAppMessage(service.title))}
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-whatsapp-600"
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon />
                   Chat on WhatsApp
                 </a>
               </article>
