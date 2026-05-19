@@ -39,7 +39,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:items-center md:py-16 lg:px-8">
         <div>
           <h1 className="max-w-xl text-3xl font-extrabold leading-tight tracking-normal text-ink sm:text-4xl lg:text-5xl">
-            Home Repairs & Maintenance Services
+           Find Home Repair Experts Near You in Jaffna & Mannar
           </h1>
           <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
             Book trusted technicians for appliance repairs, plumbing, electrical work,
